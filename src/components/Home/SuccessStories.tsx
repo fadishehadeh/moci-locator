@@ -27,14 +27,14 @@ const successStories = [
   {
     id: 1,
     title: 'Tech Innovator Opens Regional Headquarters in Doha',
-    excerpt: 'A leading global technology company establishes its MENA headquarters in Qatar's Digital District, creating 200 new jobs.',
+    excerpt: "A leading global technology company establishes its MENA headquarters in Qatar's Digital District, creating 200 new jobs.",
     image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070',
     date: 'March 15, 2025',
   },
   {
     id: 2,
     title: 'Foreign Investment Drives Manufacturing Expansion',
-    excerpt: 'Major European manufacturing firm invests $50 million in new production facility in Qatar's Industrial Area.',
+    excerpt: "Major European manufacturing firm invests $50 million in new production facility in Qatar's Industrial Area.",
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2070',
     date: 'February 28, 2025',
   },
