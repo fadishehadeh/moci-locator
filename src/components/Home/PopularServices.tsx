@@ -1,10 +1,14 @@
 
 import React, { useState } from 'react';
-import { Search, FileText, BookOpen, Globe, ChevronRight } from 'lucide-react';
+import { 
+  Search, 
+  FileText, 
+  BookOpen, 
+  Globe,
+  ChevronRight 
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card';
 
 const services = [
   {
@@ -13,7 +17,6 @@ const services = [
     description: 'Search and reserve a business name for your new enterprise.',
     icon: Search,
     link: '/services/trade-name-search',
-    gradient: 'from-violet-500 to-fuchsia-500',
   },
   {
     id: 2,
@@ -21,7 +24,6 @@ const services = [
     description: 'Register your business and obtain official commercial registration.',
     icon: FileText,
     link: '/services/commercial-registration',
-    gradient: 'from-cyan-500 to-blue-500',
   },
   {
     id: 3,
@@ -29,7 +31,6 @@ const services = [
     description: 'Apply for various business licenses and permits for your operations.',
     icon: BookOpen,
     link: '/services/licensing',
-    gradient: 'from-emerald-500 to-teal-500',
   },
   {
     id: 4,
@@ -37,16 +38,23 @@ const services = [
     description: 'Access all online services in one convenient location.',
     icon: Globe,
     link: '/e-services',
-    gradient: 'from-orange-500 to-amber-500',
   },
 ];
 
 const PopularServices = () => {
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
+  const [activeService, setActiveService] = useState<number | null>(null);
   
   return (
-    <section className="py-20">
-      <div className="container-wide">
+    <section className="py-20 relative overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-fixed opacity-100"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2070')"
+        }}
+      />
+      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm z-0"></div>
+      
+      <div className="container-wide relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
             <h2 className="text-3xl font-bold mb-2 text-qatari">Popular Services</h2>
@@ -65,87 +73,41 @@ const PopularServices = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service) => {
-            const IconComponent = service.icon;
-            const isHovered = hoveredService === service.id;
-            
-            return (
-              <HoverCard key={service.id} openDelay={0} closeDelay={0}>
-                <HoverCardTrigger asChild>
-                  <Link 
-                    to={service.link}
-                    className="block"
-                    onMouseEnter={() => setHoveredService(service.id)}
-                    onMouseLeave={() => setHoveredService(null)}
-                  >
-                    <motion.div 
-                      className={`relative h-[280px] rounded-2xl overflow-hidden bg-gradient-to-br ${service.gradient}`}
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]" />
-                      
-                      <div className="relative h-full p-8 flex flex-col">
-                        <motion.div 
-                          className="mb-6"
-                          animate={{ 
-                            y: isHovered ? 10 : 0,
-                            rotate: isHovered ? 360 : 0 
-                          }}
-                          transition={{ duration: 0.4 }}
-                        >
-                          <div className="w-16 h-16 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center">
-                            <IconComponent className={`h-8 w-8 text-qatari transition-all duration-300`} />
-                          </div>
-                        </motion.div>
-                        
-                        <motion.div 
-                          className="flex-grow"
-                          animate={{ y: isHovered ? -10 : 0 }}
-                          transition={{ duration: 0.4 }}
-                        >
-                          <h3 className="text-xl font-semibold text-white mb-3">
-                            {service.title}
-                          </h3>
-                          <p className="text-white/90 text-sm">
-                            {service.description}
-                          </p>
-                        </motion.div>
-                        
-                        <motion.div 
-                          className="mt-6"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ 
-                            opacity: isHovered ? 1 : 0,
-                            y: isHovered ? 0 : 20
-                          }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <span className="inline-flex items-center text-white font-medium text-sm group">
-                            Get Started
-                            <ChevronRight className="ml-1 h-4 w-4" />
-                          </span>
-                        </motion.div>
-                      </div>
-                    </motion.div>
-                  </Link>
-                </HoverCardTrigger>
-                <HoverCardContent 
-                  className="w-80 p-4"
-                  align="start"
-                >
-                  <div className="space-y-2">
-                    <h4 className="text-sm font-semibold">{service.title}</h4>
-                    <p className="text-sm text-muted-foreground">{service.description}</p>
-                    <div className="flex items-center pt-2">
-                      <IconComponent className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className="text-xs text-muted-foreground">Click to access service</span>
-                    </div>
+          {services.map((service) => (
+            <Link 
+              key={service.id} 
+              to={service.link}
+              className="group relative h-[280px] overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 opacity-90" />
+              
+              <div className="relative h-full p-8 flex flex-col">
+                <div className="mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-qatari to-qatari-light flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                    <service.icon className="h-8 w-8 text-white" />
                   </div>
-                </HoverCardContent>
-              </HoverCard>
-            );
-          })}
+                </div>
+                
+                <div className="flex-grow">
+                  <h3 className="text-xl font-semibold text-white mb-3 transition-transform duration-500 group-hover:translate-x-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm transition-transform duration-500 group-hover:translate-x-2">
+                    {service.description}
+                  </p>
+                </div>
+                
+                <div className="mt-6">
+                  <span className="inline-flex items-center text-qatari font-medium text-sm group-hover:translate-x-2 transition-all duration-500">
+                    Get Started
+                    <ChevronRight className="ml-1 h-4 w-4 transform transition-transform duration-500 group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </div>
+              
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-qatari to-qatari-light transform origin-left transition-transform duration-500 scale-x-0 group-hover:scale-x-100" />
+            </Link>
+          ))}
         </div>
       </div>
     </section>
