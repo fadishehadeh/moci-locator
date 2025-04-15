@@ -7,6 +7,7 @@ import PopularServices from '@/components/Home/PopularServices';
 import RegionalSection from '@/components/Home/RegionalSection';
 import EconomicSnapshot from '@/components/Home/EconomicSnapshot';
 import SuccessStories from '@/components/Home/SuccessStories';
+import InvestmentInfographic from '@/components/Home/InvestmentInfographic';
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <HeroSection />
       <UserSegments />
       <PopularServices />
+      <InvestmentInfographic />
       <RegionalSection />
       <EconomicSnapshot />
       <SuccessStories />

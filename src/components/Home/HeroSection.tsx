@@ -22,11 +22,11 @@ const HeroSection = () => {
       <div className="container-wide relative z-10 h-screen flex flex-col justify-center">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
-            Qatar: Your Gateway to Global Business
+            <span className="text-white">Creating a wealth</span><br />
+            <span className="text-white">of opportunities</span>
           </h1>
           <p className="text-xl text-gray-200 mb-8 md:pr-12 animate-fade-in">
-            Discover world-class investment opportunities with 100% foreign ownership
-            in one of the fastest growing economies in the Middle East.
+            Your partner to help you grow globally and secure your ambitions in Qatar.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
@@ -35,7 +35,7 @@ const HeroSection = () => {
               className="bg-qatari hover:bg-qatari-light text-white px-6 py-6 text-base"
             >
               <Link to="/investors/start-business">
-                Start a Business
+                Explore Opportunities
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -45,7 +45,7 @@ const HeroSection = () => {
               className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 px-6 py-6 text-base"
             >
               <Link to="/investors/opportunities">
-                Explore Opportunities
+                Find Out More
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
