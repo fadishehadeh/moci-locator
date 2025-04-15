@@ -32,9 +32,9 @@ const Header = () => {
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/6a6aebf3-4c97-4018-8f5e-8fc47695e0ae.png" 
+              src="/lovable-uploads/56ed811a-e598-4910-909e-5b80311437bc.png" 
               alt="MOCI Logo" 
-              className="h-16 md:h-20" 
+              className="h-16 md:h-20 max-w-[200px] object-contain" 
             />
           </Link>
         </div>

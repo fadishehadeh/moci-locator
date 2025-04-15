@@ -1,12 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  Youtube,
   ChevronRight 
 } from 'lucide-react';
 import { 
@@ -156,9 +150,9 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center">
             <img 
-              src="/lovable-uploads/f16e4385-827b-4f3c-981d-74c69f7148be.png" 
+              src="/lovable-uploads/56ed811a-e598-4910-909e-5b80311437bc.png" 
               alt="MOCI Logo" 
-              className="h-12 mr-4" 
+              className="h-12 mr-4 max-w-[200px] object-contain" 
             />
             <div>
               <p className="text-sm text-gray-400">
@@ -170,24 +164,6 @@ const Footer = () => {
                 <Link to="/sitemap" className="hover:text-white">Sitemap</Link>
               </div>
             </div>
-          </div>
-          
-          <div className="flex gap-4">
-            <Link to="#" aria-label="Facebook">
-              <Facebook className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
-            </Link>
-            <Link to="#" aria-label="Twitter">
-              <Twitter className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
-            </Link>
-            <Link to="#" aria-label="Instagram">
-              <Instagram className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
-            </Link>
-            <Link to="#" aria-label="LinkedIn">
-              <Linkedin className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
-            </Link>
-            <Link to="#" aria-label="YouTube">
-              <Youtube className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
-            </Link>
           </div>
         </div>
       </div>
