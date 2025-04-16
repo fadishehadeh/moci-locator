@@ -119,14 +119,18 @@ const PopularServices = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* Background with blur and gradient */}
+      {/* Background with blur and Qatar skyline */}
       <div 
         className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center bg-fixed opacity-5"
+        aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-sm" />
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-sm"
+        aria-hidden="true"
+      />
       
       <div className="container-wide relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl font-bold mb-3 text-qatari bg-clip-text text-transparent bg-gradient-to-r from-qatari to-qatari-light">
             How Can We Help You Today?
           </h2>
@@ -147,7 +151,7 @@ const PopularServices = () => {
               {services.map((service) => (
                 <CarouselItem 
                   key={service.id} 
-                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
                 >
                   <ServiceTile
                     service={service}
@@ -157,8 +161,8 @@ const PopularServices = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="hidden md:flex -left-12" />
+            <CarouselNext className="hidden md:flex -right-12" />
           </Carousel>
         </div>
       </div>
