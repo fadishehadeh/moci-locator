@@ -1,7 +1,13 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ChevronRight 
+  ChevronRight,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube
 } from 'lucide-react';
 import { 
   Accordion,
@@ -165,6 +171,50 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          
+          {/* Social Media Icons */}
+          <div className="flex space-x-4">
+            <a 
+              href="https://www.facebook.com/mociQatar" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <Facebook size={24} />
+            </a>
+            <a 
+              href="https://www.twitter.com/mociQatar" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <Twitter size={24} />
+            </a>
+            <a 
+              href="https://www.instagram.com/mociQatar" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <Instagram size={24} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/mociQatar" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <Linkedin size={24} />
+            </a>
+            <a 
+              href="https://www.youtube.com/mociQatar" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <Youtube size={24} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -172,3 +222,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
