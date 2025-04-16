@@ -6,16 +6,16 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
-    <div className="relative h-screen bg-gray-900 text-white">
+    <div className="relative h-screen bg-gray-100 text-white opacity-100">
       {/* Background Image with Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center z-0" 
+        className="absolute inset-0 bg-cover bg-center z-0 opacity-100" 
         style={{
           backgroundImage: "url('../public/images/hero.jpg')",
           backgroundPosition: "center 30%"
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/60 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/10 z-0"></div>
       </div>
       
       {/* Content */}
