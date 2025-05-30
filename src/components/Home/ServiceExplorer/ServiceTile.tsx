@@ -33,12 +33,12 @@ const ServiceTile = ({ service, isActive, onClick }: ServiceTileProps) => {
       {/* Gradient Overlay */}
       <div className={cn(
         "absolute inset-0",
-        "bg-gradient-to-t from-black/80 via-black/40 to-transparent",
+        "bg-gradient-to-t from-black/90 via-black/70 to-black/20",
         "transition-opacity duration-500"
       )} />
 
       {/* Main Content - Always Visible */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 p-6 text-center">
         {/* Icon Container with Neumorphic Effect */}
         <div className={cn(
           "flex items-center justify-center",
@@ -67,7 +67,7 @@ const ServiceTile = ({ service, isActive, onClick }: ServiceTileProps) => {
 
       {/* Hover State Content */}
       <div className={cn(
-        "absolute inset-0 flex flex-col items-center justify-center p-6",
+        "absolute inset-0 flex flex-col items-center justify-end pb-16 p-6",
         "bg-black/40 backdrop-blur-sm",
         "opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100",
         "transition-all duration-500 ease-in-out"
@@ -91,7 +91,7 @@ const ServiceTile = ({ service, isActive, onClick }: ServiceTileProps) => {
           </div>
 
           {/* CTA Button */}
-          <Button 
+          <Button
             className={cn(
               "bg-white/20 backdrop-blur-md hover:bg-white/30",
               "text-white border border-white/20 mt-2",

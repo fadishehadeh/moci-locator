@@ -61,18 +61,18 @@ const TailoredServices = () => {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div className="text-left mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Tailored Services for International Users</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl">
             Access specialized services designed to help international businesses
             establish and grow their presence in Qatar.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service) => {
             const IconComponent = service.icon;
-            
+
             return (
               <Card key={service.title} className="overflow-hidden group hover:shadow-md transition-all duration-300">
                 <CardContent className="p-6">

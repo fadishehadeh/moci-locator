@@ -22,8 +22,8 @@ const sectors = [
     description: "Digital infrastructure and innovation ecosystem",
     icon: Cpu,
     color: "from-qatari to-qatari-dark",
-    color: "from-qatari to-qatari-dark",
     highlightColor: "bg-red-50",
+    textColor: "black-700",
     details: "Qatar has made significant investments in building a knowledge-based economy. With initiatives like Qatar Science & Technology Park and the Innovation Zone, the country offers an ideal environment for tech startups and established companies alike.",
     opportunities: ["Fintech", "Smart City Solutions", "Cybersecurity", "AI & Machine Learning"]
   },
@@ -64,30 +64,30 @@ const sectors = [
 
 const SectorOpportunities = () => {
   const [activeSector, setActiveSector] = useState(sectors[0]);
-  
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div className="text-left mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Explore Opportunities by Sector</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl">
             Qatar offers diverse investment opportunities across key growth sectors.
             Explore the sectors below to find the right fit for your business.
           </p>
         </div>
-        
+
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {sectors.map((sector) => {
             const IconComponent = sector.icon;
             const isActive = activeSector.id === sector.id;
-            
+
             return (
               <button
                 key={sector.id}
                 className={`flex items-center px-4 py-3 rounded-full transition-all duration-300 ${
-                  isActive 
+                  isActive
                     ? `bg-gradient-to-r ${sector.color} text-white shadow-md`
-                    : 'bg-white hover:bg-gray-100 text-gray-700'
+                    : 'bg-white hover:bg-gray-100 text-black'
                 }`}
                 onClick={() => setActiveSector(sector)}
               >
@@ -97,7 +97,7 @@ const SectorOpportunities = () => {
             );
           })}
         </div>
-        
+
         <div className="bg-white rounded-xl shadow-md overflow-hidden">
           <div className="md:flex">
             <div className={`md:w-1/3 p-8 bg-gradient-to-br ${activeSector.color} text-white`}>
@@ -115,18 +115,18 @@ const SectorOpportunities = () => {
                 </Link>
               </Button>
             </div>
-            
+
             <div className="md:w-2/3 p-8">
               <p className="text-gray-700 mb-6">
                 {activeSector.details}
               </p>
-              
+
               <div className="mb-4">
                 <h4 className="font-semibold text-gray-900 mb-3">Key Opportunities:</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {activeSector.opportunities.map((opportunity, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className={`${activeSector.highlightColor} ${activeSector.textColor} px-4 py-3 rounded-lg font-medium`}
                     >
                       {opportunity}

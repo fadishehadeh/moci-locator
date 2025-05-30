@@ -14,7 +14,7 @@ const InternationalCTA = () => {
             Our dedicated team of investment specialists is ready to guide you through
             every step of establishing and growing your business in Qatar.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               asChild
@@ -26,12 +26,12 @@ const InternationalCTA = () => {
                 Talk to an Advisor
               </Link>
             </Button>
-            
+
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/20 font-medium px-6 py-6 text-base"
+              className="border-white text-qatari hover:bg-white hover:text-qatari font-medium px-6 py-6 text-base"
             >
               <Link to="/investors/start-business">
                 Start Your Business Today

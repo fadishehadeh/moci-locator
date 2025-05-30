@@ -91,7 +91,7 @@ const countries = [
 const CountrySelector = () => {
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const { countryCode } = useUserLocation();
-  
+
   useEffect(() => {
     if (countryCode) {
       const userCountry = countries.find(country => country.code === countryCode);
@@ -100,17 +100,17 @@ const CountrySelector = () => {
       }
     }
   }, [countryCode]);
-  
+
   return (
     <section className="py-20 bg-white">
       <div className="container-wide">
-        <div className="text-center mb-12">
+        <div className="text-left mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Country-Specific Resources</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl">
             Find information tailored to your country's business relationship with Qatar.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Country Selector */}
           <div className="lg:col-span-1">
@@ -119,7 +119,7 @@ const CountrySelector = () => {
                 <Globe className="h-5 w-5 mr-2 text-qatari" />
                 Select Your Country
               </h3>
-              
+
               <div className="space-y-2">
                 {countries.map((country) => (
                   <button
@@ -138,7 +138,7 @@ const CountrySelector = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Country Details */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-xl shadow-md p-8">
@@ -151,7 +151,7 @@ const CountrySelector = () => {
                   <p className="text-qatari">{selectedCountry.name}-Qatar Business Relations</p>
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <div className="flex items-center mb-3">
@@ -160,7 +160,7 @@ const CountrySelector = () => {
                   </div>
                   <p className="text-gray-700 text-sm">{selectedCountry.detail.trade}</p>
                 </div>
-                
+
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <div className="flex items-center mb-3">
                     <MapPin className="h-5 w-5 text-qatari mr-2" />
@@ -168,7 +168,7 @@ const CountrySelector = () => {
                   </div>
                   <p className="text-gray-700 text-sm">{selectedCountry.detail.embassy}</p>
                 </div>
-                
+
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <div className="flex items-center mb-3">
                     <Info className="h-5 w-5 text-qatari mr-2" />
@@ -177,7 +177,7 @@ const CountrySelector = () => {
                   <p className="text-gray-700 text-sm">{selectedCountry.detail.support}</p>
                 </div>
               </div>
-              
+
               <Button
                 asChild
                 className="bg-qatari hover:bg-qatari-light text-white"

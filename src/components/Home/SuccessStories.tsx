@@ -1,19 +1,19 @@
 import React from 'react';
-import { 
-  ArrowRight, 
-  Calendar, 
-  ChevronRight 
+import {
+  ArrowRight,
+  Calendar,
+  ChevronRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { 
-  Tabs, 
-  TabsContent, 
-  TabsList, 
-  TabsTrigger 
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
 } from "@/components/ui/tabs";
 import { useIsMobile } from '@/hooks/use-mobile';
-import { 
+import {
   Card,
   CardContent,
   CardDescription,
@@ -93,7 +93,7 @@ const events = [
 
 const SuccessStories = () => {
   const isMobile = useIsMobile();
-  
+
   return (
     <section className="py-20 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
@@ -103,9 +103,9 @@ const SuccessStories = () => {
             <h2 className="text-3xl font-bold mb-2">Success Stories & Updates</h2>
             <p className="text-gray-600">Latest news, events, and investor success stories</p>
           </div>
-          <Button 
+          <Button
             asChild
-            variant="outline" 
+            variant="outline"
             className="mt-4 md:mt-0"
           >
             <Link to="/media-centre">
@@ -114,27 +114,27 @@ const SuccessStories = () => {
             </Link>
           </Button>
         </div>
-        
+
         <Tabs defaultValue="success" className="w-full">
           <TabsList className="mb-8">
             <TabsTrigger value="success">Success Stories</TabsTrigger>
-            <TabsTrigger value="press">Press Releases</TabsTrigger>
-            <TabsTrigger value="events">Upcoming Events</TabsTrigger>
+            <TabsTrigger value="press" className="text-black data-[state=active]:text-black">Press Releases</TabsTrigger>
+            <TabsTrigger value="events" className="text-black data-[state=active]:text-black">Upcoming Events</TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="success">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {successStories.map((story) => (
                 <Card key={story.id} className="group overflow-hidden hover:shadow-md transition-shadow">
                   <div className="h-48 overflow-hidden">
-                    <img 
-                      src={story.image} 
-                      alt={story.title} 
+                    <img
+                      src={story.image}
+                      alt={story.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <CardHeader>
-                    <CardDescription className="text-gray-500 text-sm">{story.date}</CardDescription>
+                    <CardDescription className="text-black text-sm">{story.date}</CardDescription>
                     <CardTitle className="text-lg font-semibold line-clamp-2">{story.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -150,13 +150,13 @@ const SuccessStories = () => {
               ))}
             </div>
           </TabsContent>
-          
+
           <TabsContent value="press">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {pressReleases.map((press) => (
                 <Card key={press.id} className="group hover:shadow-md transition-shadow relative overflow-hidden">
                   <div className="absolute inset-0 opacity-5">
-                    <img 
+                    <img
                       src="https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=2070"
                       alt="Background pattern"
                       className="w-full h-full object-cover"
@@ -164,7 +164,7 @@ const SuccessStories = () => {
                   </div>
                   <div className="relative z-10">
                     <CardHeader>
-                      <CardDescription className="text-gray-500 text-sm">{press.date}</CardDescription>
+                      <CardDescription className="text-black text-sm">{press.date}</CardDescription>
                       <CardTitle className="text-lg font-semibold line-clamp-2">{press.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -181,15 +181,15 @@ const SuccessStories = () => {
               ))}
             </div>
           </TabsContent>
-          
+
           <TabsContent value="events">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {events.map((event) => (
                 <Card key={event.id} className="overflow-hidden hover:shadow-md transition-shadow">
                   <div className="h-48 overflow-hidden relative">
-                    <img 
-                      src={event.image} 
-                      alt={event.title} 
+                    <img
+                      src={event.image}
+                      alt={event.title}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

@@ -106,7 +106,7 @@ const PopularServices = () => {
   const [activeService, setActiveService] = useState<ServiceItem | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const isMobile = useIsMobile();
-  
+
   const handleServiceClick = (service: ServiceItem) => {
     setActiveService(service);
     setIsDrawerOpen(true);
@@ -130,22 +130,22 @@ const PopularServices = () => {
   };
 
   return (
-    <section 
+    <section
       className="py-24 relative overflow-hidden"
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
-      <div 
+      <div
         className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center bg-fixed opacity-5"
         aria-hidden="true"
       />
-      <div 
+      <div
         className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-sm"
         aria-hidden="true"
       />
-      
+
       <div className="container-wide relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-left mb-16 animate-fade-in">
           <h2 className="text-4xl font-bold mb-3 text-qatari bg-clip-text text-transparent bg-gradient-to-r from-qatari to-qatari-light">
             How Can We Help You Today?
           </h2>
@@ -164,8 +164,8 @@ const PopularServices = () => {
           >
             <CarouselContent className="-ml-4">
               {services.map((service) => (
-                <CarouselItem 
-                  key={service.id} 
+                <CarouselItem
+                  key={service.id}
                   className="pl-4 md:basis-1/2 lg:basis-1/3"
                 >
                   <ServiceTile
@@ -182,13 +182,13 @@ const PopularServices = () => {
 
           <div className="flex justify-center space-x-2 mt-8">
             {services.map((service, index) => (
-              <div 
+              <div
                 key={service.id}
                 className={cn(
-                  "w-2 h-2 rounded-full transition-all duration-300",
-                  activeService?.id === service.id 
-                    ? "bg-qatari w-4" 
-                    : "bg-gray-300 hover:bg-gray-400"
+                  "w-2 h-2 rounded-full transition-all duration-300 cursor-pointer",
+                  activeService?.id === service.id
+                    ? "bg-qatari w-4"
+                    : "bg-black hover:bg-gray-700"
                 )}
                 role="button"
                 tabIndex={0}

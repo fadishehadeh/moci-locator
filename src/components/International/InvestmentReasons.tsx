@@ -43,31 +43,31 @@ const reasons = [
 
 const InvestmentReasons = () => {
   const [activeReason, setActiveReason] = useState<number | null>(null);
-  
+
   return (
     <section className="py-20 bg-white">
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div className="text-left mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Invest in Qatar</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl">
             Qatar offers one of the most attractive investment environments in the Middle East,
             with investor-friendly policies and strategic advantages.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((reason, index) => {
             const IconComponent = reason.icon;
-            
+
             return (
-              <div 
+              <div
                 key={reason.title}
                 className="glass-card p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden group"
                 onMouseEnter={() => setActiveReason(index)}
                 onMouseLeave={() => setActiveReason(null)}
               >
                 <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-qatari to-qatari-light transform origin-left transition-transform duration-500 scale-x-0 group-hover:scale-x-100" />
-                
+
                 <div className="flex items-start">
                   <div className="bg-qatari/10 p-3 rounded-lg mr-4">
                     <IconComponent className="h-6 w-6 text-qatari" />
@@ -75,7 +75,7 @@ const InvestmentReasons = () => {
                   <div>
                     <h3 className="font-semibold text-xl mb-2">{reason.title}</h3>
                     <p className="text-gray-600">{reason.description}</p>
-                    
+
                     {activeReason === index && (
                       <div className="mt-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-md animate-fade-in">
                         {reason.details}

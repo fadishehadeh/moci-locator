@@ -1,18 +1,18 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ChevronDown, 
-  Globe, 
-  Menu, 
-  Search, 
-  X 
+import {
+  ChevronDown,
+  Globe,
+  Menu,
+  Search,
+  X
 } from 'lucide-react';
-import { 
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger 
+  DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import NavigationMenuDemo from './NavigationMenu';
 import { Button } from '@/components/ui/button';
@@ -22,77 +22,106 @@ import { AuthButtons } from '../Auth/AuthButtons';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
-  
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
+
   return (
-    <header className="w-full bg-white border-b border-gray-100 fixed top-0 left-0 right-0 z-40">
-      <div className="container-wide flex items-center justify-between py-4">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/56ed811a-e598-4910-909e-5b80311437bc.png" 
-              alt="MOCI Logo" 
-              className="h-16 md:h-20 max-w-[200px] object-contain" 
-            />
-          </Link>
-        </div>
-        
-        {/* Desktop Navigation */}
-        {!isMobile && (
-          <div className="hidden lg:flex">
-            <NavigationMenuDemo />
-          </div>
-        )}
-        
-        {/* Right side actions */}
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" aria-label="Search">
-            <Search className="h-5 w-5" />
-          </Button>
+    <header className="w-full bg-white fixed top-0 left-0 right-0 z-40">
+      {/* Second Tier Navigation */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container-wide">
+          <div className="flex items-center justify-between py-3 gap-4">
+            {/* Left Side - Contact Information */}
+            <div className="flex items-center gap-4 text-sm">
+              <Link to="/contact" className="text-gray-600 hover:text-qatari flex items-center gap-1">
+                Contact us
+              </Link>
+              <a href="tel:+97444069999" className="text-gray-600 hover:text-qatari flex items-center gap-1">
+                +974 4406 9999
+              </a>
+            </div>
 
-          {/* Show AuthButtons only on desktop/larger screens */}
-          {!isMobile && <AuthButtons />}
-
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="flex items-center gap-1">
-                <Globe className="h-4 w-4 mr-1" />
-                <span>EN</span>
-                <ChevronDown className="h-3 w-3" />
+            {/* Right Side - Existing Items */}
+            <div className="flex items-center gap-4">
+              {/* Search Button */}
+              <Button variant="ghost" size="icon" aria-label="Search" className="text-gray-600 hover:text-qatari">
+                <Search className="h-4 w-4" />
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>English</DropdownMenuItem>
-              <DropdownMenuItem>العربية</DropdownMenuItem>
-              <DropdownMenuItem>中文</DropdownMenuItem>
-              <DropdownMenuItem>Русский</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          
-          {isMobile && (
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={toggleMenu} 
-              aria-label="Toggle Menu"
-            >
-              {isMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
-          )}
+
+              {/* Auth Buttons */}
+              <div className="hidden md:flex">
+                <AuthButtons />
+              </div>
+
+              {/* Language Selector */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="flex items-center gap-1 text-gray-600 hover:text-qatari">
+                    <Globe className="h-4 w-4 mr-1" />
+                    <span>EN</span>
+                    <ChevronDown className="h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem>English</DropdownMenuItem>
+                  <DropdownMenuItem>العربية</DropdownMenuItem>
+                  <DropdownMenuItem>中文</DropdownMenuItem>
+                  <DropdownMenuItem>Русский</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </div>
         </div>
       </div>
-      
+
+      {/* Main Header */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="container-wide">
+          <div className="flex items-center justify-between py-4">
+            {/* Logo */}
+            <div className="flex items-center">
+              <Link to="/" className="flex items-center">
+                <img
+                  src="/images/logo-main.svg"
+                  alt="MOCI Logo"
+                  className="h-20 md:h-24 max-w-[240px] object-contain"
+                />
+              </Link>
+            </div>
+
+            {/* Desktop Navigation - Right aligned to match top tier */}
+            <div className="flex items-center gap-4">
+              {!isMobile && (
+                <div className="hidden lg:flex">
+                  <NavigationMenuDemo />
+                </div>
+              )}
+
+              {/* Mobile menu toggle */}
+              {isMobile && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggleMenu}
+                  aria-label="Toggle Menu"
+                >
+                  {isMenuOpen ? (
+                    <X className="h-5 w-5" />
+                  ) : (
+                    <Menu className="h-5 w-5" />
+                  )}
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Mobile Navigation Menu */}
       {isMobile && isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[73px] bg-white z-30 animate-fade-in overflow-auto">
+        <div className="lg:hidden fixed inset-0 top-[115px] bg-white z-30 animate-fade-in overflow-auto">
           <div className="container py-8">
             <nav className="flex flex-col space-y-4">
               <Link to="/about" className="py-2 text-lg border-b border-gray-100">

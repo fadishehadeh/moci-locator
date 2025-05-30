@@ -20,10 +20,10 @@ const ServiceDrawer = ({ service, isOpen, onClose }: ServiceDrawerProps) => {
       <DrawerContent className="h-[85vh] sm:h-auto">
         <div className="container max-w-2xl mx-auto p-6">
           <DrawerHeader className="relative">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="absolute right-0 top-0" 
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-0 top-0"
               onClick={onClose}
             >
               <X className="h-4 w-4" />
@@ -40,9 +40,9 @@ const ServiceDrawer = ({ service, isOpen, onClose }: ServiceDrawerProps) => {
           <div className="mt-6 space-y-6">
             <div className="grid grid-cols-2 gap-4">
               {Object.entries(service.stats).map(([key, value], idx) => (
-                <div 
-                  key={idx} 
-                  className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-gray-100 shadow-sm"
+                <div
+                  key={idx}
+                  className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-black shadow-sm"
                 >
                   <p className="text-xs text-gray-500 capitalize">
                     {key.replace(/([A-Z])/g, ' $1').trim()}

@@ -8,8 +8,8 @@ const HeroSection = () => {
   return (
     <div className="relative h-screen bg-gray-100 text-white opacity-100">
       {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-100" 
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0 opacity-100"
         style={{
           backgroundImage: "url('../public/images/hero.jpg')",
           backgroundPosition: "center 30%"
@@ -17,7 +17,7 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/10 z-0"></div>
       </div>
-      
+
       {/* Content */}
       <div className="container-wide relative z-10 h-screen flex flex-col justify-center">
         <div className="max-w-2xl">
@@ -28,7 +28,7 @@ const HeroSection = () => {
           <p className="text-xl text-gray-200 mb-8 md:pr-12 animate-fade-in">
             Your partner to help you grow globally and secure your ambitions in Qatar.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
             <Button
               asChild
@@ -42,7 +42,7 @@ const HeroSection = () => {
             <Button
               asChild
               variant="outline"
-              className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 px-6 py-6 text-base"
+              className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20 px-6 py-6 text-base"
             >
               <Link to="/investors/opportunities">
                 Find Out More

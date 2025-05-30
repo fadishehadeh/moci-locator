@@ -52,18 +52,18 @@ const InvestmentIncentives = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div className="text-left mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Investment Incentives</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Qatar offers an attractive package of incentives designed to maximize return on investment 
+          <p className="text-lg text-gray-600 max-w-3xl">
+            Qatar offers an attractive package of incentives designed to maximize return on investment
             and ensure long-term business success.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {incentives.map((incentive) => {
             const IconComponent = incentive.icon;
-            
+
             return (
               <div key={incentive.title} className="glass-card p-8 transition-all duration-300 hover:shadow-lg">
                 <div className="flex items-center mb-6">
@@ -75,7 +75,7 @@ const InvestmentIncentives = () => {
                     <p className="text-gray-600">{incentive.description}</p>
                   </div>
                 </div>
-                
+
                 <ul className="space-y-3 pl-4 border-l-2 border-qatari/20">
                   {incentive.details.map((detail, index) => (
                     <li key={index} className="text-gray-700">

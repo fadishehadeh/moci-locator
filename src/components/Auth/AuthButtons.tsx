@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { 
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -15,9 +15,9 @@ import { LogIn, UserPlus, Mail, Lock } from 'lucide-react';
 
 export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => {
   const [isLoginView, setIsLoginView] = React.useState(true);
-  
+
   const toggleView = () => setIsLoginView(!isLoginView);
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Authentication logic will be implemented here after Supabase integration
@@ -29,8 +29,8 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
     <div className="flex items-center gap-2">
       <Dialog>
         <DialogTrigger asChild>
-          <Button 
-            variant={variant === "footer" ? "ghost" : "default"} 
+          <Button
+            variant={variant === "footer" ? "ghost" : "default"}
             className={buttonClass}
             size="sm"
           >
@@ -42,8 +42,8 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
           <DialogHeader>
             <DialogTitle>{isLoginView ? 'Login' : 'Sign Up'}</DialogTitle>
             <DialogDescription>
-              {isLoginView 
-                ? 'Enter your credentials to access your account' 
+              {isLoginView
+                ? 'Enter your credentials to access your account'
                 : 'Create a new account to get started'}
             </DialogDescription>
           </DialogHeader>
@@ -52,9 +52,9 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
               <Label htmlFor="email">Email</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  id="email" 
-                  type="email" 
+                <Input
+                  id="email"
+                  type="email"
                   placeholder="Enter your email"
                   className="pl-10"
                 />
@@ -64,9 +64,9 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
               <Label htmlFor="password">Password</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  id="password" 
-                  type="password" 
+                <Input
+                  id="password"
+                  type="password"
                   placeholder="Enter your password"
                   className="pl-10"
                 />
@@ -76,13 +76,13 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
               {isLoginView ? 'Login' : 'Sign Up'}
             </Button>
             <div className="text-center">
-              <button 
+              <button
                 type="button"
-                onClick={toggleView} 
+                onClick={toggleView}
                 className="text-sm text-primary hover:underline"
               >
-                {isLoginView 
-                  ? "Don't have an account? Sign up" 
+                {isLoginView
+                  ? "Don't have an account? Sign up"
                   : "Already have an account? Login"}
               </button>
             </div>
@@ -92,9 +92,9 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
 
       <Dialog>
         <DialogTrigger asChild>
-          <Button 
+          <Button
             variant={variant === "footer" ? "ghost" : "outline"}
-            className={buttonClass}
+            className={`${buttonClass} ${variant !== "footer" ? "border-gray-500 hover:border-gray-600" : ""}`}
             size="sm"
           >
             <UserPlus className="w-4 h-4 mr-2" />
@@ -113,9 +113,9 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
               <Label htmlFor="signup-email">Email</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  id="signup-email" 
-                  type="email" 
+                <Input
+                  id="signup-email"
+                  type="email"
                   placeholder="Enter your email"
                   className="pl-10"
                 />
@@ -125,9 +125,9 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
               <Label htmlFor="signup-password">Password</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  id="signup-password" 
-                  type="password" 
+                <Input
+                  id="signup-password"
+                  type="password"
                   placeholder="Enter your password"
                   className="pl-10"
                 />
