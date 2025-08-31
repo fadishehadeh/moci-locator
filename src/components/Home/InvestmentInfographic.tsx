@@ -12,7 +12,7 @@ const InvestmentInfographic = () => {
       <div className="container-wide">
         <div className="text-left mb-12">
           <h2 className="text-3xl font-bold mb-4">Investment Opportunities</h2>
-          <p className="text-lg text-gray-600 max-w-2xl">
+          <p className="text-xl text-gray-600 max-w-2xl">
             Discover high-growth sectors and strategic investment opportunities in Qatar
           </p>
         </div>
@@ -119,7 +119,7 @@ const InvestmentInfographic = () => {
         <div className="flex justify-start mt-10">
           <Button
             asChild
-            className="bg-qatari hover:bg-qatari-light text-white"
+            className="bg-qatari hover:bg-qatari-light text-white text-xl"
           >
             <Link to="/investors/opportunities">
               Explore All Investment Opportunities

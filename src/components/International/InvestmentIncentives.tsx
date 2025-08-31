@@ -54,7 +54,7 @@ const InvestmentIncentives = () => {
       <div className="container-wide">
         <div className="text-left mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Investment Incentives</h2>
-          <p className="text-lg text-gray-600 max-w-3xl">
+          <p className="text-xl text-gray-600 max-w-3xl">
             Qatar offers an attractive package of incentives designed to maximize return on investment
             and ensure long-term business success.
           </p>
@@ -76,7 +76,7 @@ const InvestmentIncentives = () => {
                   </div>
                 </div>
 
-                <ul className="space-y-3 pl-4 border-l-2 border-qatari/20">
+                <ul className="space-y-3 pl-4 list-disc list-inside">
                   {incentive.details.map((detail, index) => (
                     <li key={index} className="text-gray-700 text-xl">
                       {detail}

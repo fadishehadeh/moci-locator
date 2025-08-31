@@ -106,7 +106,7 @@ const SuccessStories = () => {
         </div>
 
         <Tabs defaultValue="success" className="w-full">
-          <TabsList className="mb-8 border border-gray-400 p-1 bg-transparent">
+          <TabsList className="mb-8 border border-gray-800 p-1 bg-transparent">
             <TabsTrigger value="success" className="text-xl px-4 py-2 text-black data-[state=active]:bg-transparent data-[state=active]:text-qatari">Success Stories</TabsTrigger>
             <TabsTrigger value="press" className="text-black data-[state=active]:bg-transparent data-[state=active]:text-qatari text-xl px-4 py-2">Press Releases</TabsTrigger>
             <TabsTrigger value="events" className="text-black data-[state=active]:bg-transparent data-[state=active]:text-qatari text-xl px-4 py-2">Upcoming Events</TabsTrigger>
@@ -137,7 +137,7 @@ const SuccessStories = () => {
                     <p className="text-gray-600 line-clamp-3 text-xl">{story.excerpt}</p>
                   </CardContent>
                   <CardFooter>
-                    <Link to={`/media-centre/stories/${story.id}`} className="text-qatari font-medium text-sm flex items-center">
+                    <Link to={`/media-centre/stories/${story.id}`} className="text-qatari font-medium text-xl flex items-center">
                       Read Full Story
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
@@ -167,7 +167,7 @@ const SuccessStories = () => {
                       <p className="text-gray-600 line-clamp-3 text-xl">{press.excerpt}</p>
                     </CardContent>
                     <CardFooter>
-                      <Link to={`/media-centre/press/${press.id}`} className="text-qatari font-medium text-sm flex items-center">
+                      <Link to={`/media-centre/press/${press.id}`} className="text-qatari font-medium text-xl flex items-center">
                         Read Press Release
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>

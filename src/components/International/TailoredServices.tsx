@@ -68,7 +68,7 @@ const TailoredServices = () => {
       <div className="container-wide">
         <div className="text-left mb-16">
           <h2 id="tailored-services-heading" className="text-3xl font-bold text-gray-900 mb-4">Tailored Services for International Users</h2>
-          <p className="text-lg text-gray-600 max-w-3xl">
+          <p className="text-xl text-gray-600 max-w-3xl">
             Access specialized services designed to help international businesses
             establish and grow their presence in Qatar.
           </p>
@@ -98,7 +98,7 @@ const TailoredServices = () => {
                   <Button
                     asChild
                     variant="ghost"
-                    className="p-0 h-auto text-qatari hover:text-qatari-light hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded"
+                    className="p-0 h-auto text-qatari hover:text-qatari-light hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-qatari focus:rounded text-xl"
                   >
                     <Link
                       to={service.link}

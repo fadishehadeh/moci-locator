@@ -173,7 +173,7 @@ const Footer = () => {
             <img
               src="public/images/logo-main-white.svg"
               alt="MOCI Logo"
-              className="h-[84px] max-w-[360px] object-contain mb-6"
+              className="h-[156px] md:h-[181px] max-w-[450px] object-contain mb-6"
             />
             <div className="flex flex-wrap items-center gap-6 text-xl text-gray-400">
               <p>© {new Date().getFullYear()} Ministry of Commerce and Industry. All rights reserved.</p>

@@ -78,8 +78,8 @@ const RegionalSection = () => {
             <Globe2 className="h-6 w-6" />
             <h2 className="text-3xl font-bold">International Investor Resources</h2>
           </div>
-          <p className="text-lg text-gray-600 max-w-3xl">
-            Access tailored information and resources specific to your region. Our international 
+          <p className="text-xl text-gray-600 max-w-3xl">
+            Access tailored information and resources specific to your region. Our international
             investment guides provide localized insights for investors from around the world.
           </p>
         </div>
@@ -132,7 +132,7 @@ const RegionalSection = () => {
         </div>
         
         {userCountry && !isLoading && (
-          <div className="mb-12 glass-card p-8 border-2 border-qatari/10 relative overflow-hidden group">
+          <div className="mb-12 glass-card p-8 border border-qatari relative overflow-hidden group">
             <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
               <img
                 src="https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?q=80&w=2070"
@@ -155,7 +155,7 @@ const RegionalSection = () => {
                 </p>
                 <Button
                   asChild
-                  className="bg-qatari hover:bg-qatari-light text-white"
+                  className="bg-qatari hover:bg-qatari-light text-white text-xl"
                 >
                   <Link to={`/investors/regions/${userCountry.code.toLowerCase()}`}>
                     View {userCountry.name} Investor Guide

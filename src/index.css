@@ -160,4 +160,8 @@
   .glass-card {
     @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-sm rounded-lg;
   }
+
+  .drop-shadow-md-dark {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
+  }
 }

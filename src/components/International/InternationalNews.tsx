@@ -45,7 +45,7 @@ const InternationalNews = () => {
           <Button
             asChild
             variant="outline"
-            className="mt-4 md:mt-0 border-qatari text-qatari hover:bg-qatari/5"
+            className="mt-4 md:mt-0 border-qatari text-qatari hover:bg-qatari/5 text-xl"
           >
             <Link to="/news">
               View All News
@@ -81,7 +81,7 @@ const InternationalNews = () => {
                 <Button
                   asChild
                   variant="ghost"
-                  className="p-0 h-auto text-qatari hover:text-qatari-light hover:bg-transparent"
+                  className="p-0 h-auto text-qatari hover:text-qatari-light hover:bg-transparent text-xl"
                 >
                   <Link to={item.link} className="flex items-center">
                     Read more

@@ -94,7 +94,7 @@ export const AuthButtons = ({ variant = "default" as "default" | "footer" }) => 
         <DialogTrigger asChild>
           <Button
             variant={variant === "footer" ? "ghost" : "outline"}
-            className={`${buttonClass} ${variant !== "footer" ? "border-gray-500 hover:border-gray-600" : ""}`}
+            className={`${buttonClass} ${variant !== "footer" ? "border border-gray-800 hover:border-gray-900" : ""}`}
             size="sm"
           >
             <UserPlus className="w-4 h-4 mr-2" />

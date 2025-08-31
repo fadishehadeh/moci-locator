@@ -19,7 +19,7 @@ const InternationalCTA = () => {
             <Button
               asChild
               size="lg"
-              className="bg-white text-qatari hover:bg-gray-100 font-medium px-6 py-6 text-base"
+              className="bg-white text-qatari hover:bg-gray-100 font-medium px-6 py-6 text-xl"
             >
               <Link to="/contact/advisor">
                 <MessageSquare className="mr-2 h-5 w-5" />
@@ -31,7 +31,7 @@ const InternationalCTA = () => {
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-qatari hover:bg-white hover:text-qatari font-medium px-6 py-6 text-base"
+              className="border-white text-qatari hover:bg-white hover:text-qatari font-medium px-6 py-6 text-xl"
             >
               <Link to="/investors/start-business">
                 Start Your Business Today

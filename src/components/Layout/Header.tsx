@@ -32,14 +32,14 @@ const Header = () => {
       {/* Second Tier Navigation */}
       <div className="bg-white border-b border-gray-200">
         <div className="container-wide">
-          <div className="flex items-center justify-between py-3 gap-4">
+          <div className="flex items-center justify-between gap-4 -my-2">
             {/* Logo */}
             <div className="flex items-center">
               <Link to="/" className="flex items-center" aria-label="Qatar Ministry of Commerce and Industry - Home">
                 <img
                   src="/images/logo-main.svg"
                   alt="Qatar Ministry of Commerce and Industry Logo"
-                  className="h-[85px] md:h-[98px] max-w-[351px] object-contain"
+                  className="h-[156px] md:h-[181px] max-w-[450px] object-contain -my-2"
                 />
               </Link>
             </div>

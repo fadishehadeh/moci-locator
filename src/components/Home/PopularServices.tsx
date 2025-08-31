@@ -149,7 +149,7 @@ const PopularServices = () => {
           <h2 className="text-4xl font-bold mb-3 text-qatari bg-clip-text text-transparent bg-gradient-to-r from-qatari to-qatari-light">
             How Can We Help You Today?
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-xl">
             Access our most popular services with just a click
           </p>
         </div>

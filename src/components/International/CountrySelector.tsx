@@ -106,7 +106,7 @@ const CountrySelector = () => {
       <div className="container-wide">
         <div className="text-left mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Country-Specific Resources</h2>
-          <p className="text-lg text-gray-600 max-w-3xl">
+          <p className="text-xl text-gray-600 max-w-3xl">
             Find information tailored to your country's business relationship with Qatar.
           </p>
         </div>
@@ -124,7 +124,7 @@ const CountrySelector = () => {
                 {countries.map((country) => (
                   <button
                     key={country.code}
-                    className={`w-full flex items-center p-3 rounded-lg transition-colors duration-200 ${
+                    className={`w-full flex items-center p-3 rounded-lg border border-qatari transition-colors duration-200 ${
                       selectedCountry.code === country.code
                         ? 'bg-qatari text-white'
                         : 'bg-white hover:bg-gray-100 text-gray-800'
@@ -153,7 +153,7 @@ const CountrySelector = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-50 p-4 rounded-lg border border-qatari">
                   <div className="flex items-center mb-3">
                     <FileText className="h-5 w-5 text-qatari mr-2" />
                     <h4 className="font-semibold">Trade Agreements</h4>
@@ -161,7 +161,7 @@ const CountrySelector = () => {
                   <p className="text-gray-700 text-xl">{selectedCountry.detail.trade}</p>
                 </div>
 
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-50 p-4 rounded-lg border border-qatari">
                   <div className="flex items-center mb-3">
                     <MapPin className="h-5 w-5 text-qatari mr-2" />
                     <h4 className="font-semibold">Embassy</h4>
@@ -169,7 +169,7 @@ const CountrySelector = () => {
                   <p className="text-gray-700 text-xl">{selectedCountry.detail.embassy}</p>
                 </div>
 
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-50 p-4 rounded-lg border border-qatari">
                   <div className="flex items-center mb-3">
                     <Info className="h-5 w-5 text-qatari mr-2" />
                     <h4 className="font-semibold">Support Desk</h4>
@@ -180,7 +180,7 @@ const CountrySelector = () => {
 
               <Button
                 asChild
-                className="bg-qatari hover:bg-qatari-light text-white"
+                className="bg-qatari hover:bg-qatari-light text-white text-xl"
               >
                 <Link to={`/international/countries/${selectedCountry.code.toLowerCase()}`}>
                   View {selectedCountry.name} Investor Guide

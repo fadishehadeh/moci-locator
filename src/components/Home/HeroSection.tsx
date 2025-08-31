@@ -21,11 +21,11 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container-wide relative z-10 h-screen flex flex-col justify-center">
         <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in drop-shadow-md-dark">
             <span className="text-white">Creating a wealth</span><br />
             <span className="text-white">of opportunities</span>
           </h1>
-          <p className="text-xl text-gray-200 mb-8 md:pr-12 animate-fade-in">
+          <p className="text-xl text-gray-200 mb-8 md:pr-12 animate-fade-in drop-shadow-md-dark">
             Your partner to help you grow globally and secure your ambitions in Qatar.
           </p>
 

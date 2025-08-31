@@ -70,7 +70,7 @@ const SectorOpportunities = () => {
       <div className="container-wide">
         <div className="text-left mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Explore Opportunities by Sector</h2>
-          <p className="text-lg text-gray-600 max-w-3xl">
+          <p className="text-xl text-gray-600 max-w-3xl">
             Qatar offers diverse investment opportunities across key growth sectors.
             Explore the sectors below to find the right fit for your business.
           </p>
@@ -107,7 +107,7 @@ const SectorOpportunities = () => {
               <Button
                 asChild
                 variant="outline"
-                className="border-white text-black hover:bg-white/20 mt-4"
+                className="border-white text-black hover:bg-white/20 mt-4 text-xl"
               >
                 <Link to={`/investors/sectors/${activeSector.id}`}>
                   Explore Sector
@@ -127,7 +127,7 @@ const SectorOpportunities = () => {
                   {activeSector.opportunities.map((opportunity, index) => (
                     <div
                       key={index}
-                      className={`${activeSector.highlightColor} ${activeSector.textColor} px-4 py-3 rounded-lg font-medium`}
+                      className={`${activeSector.highlightColor} ${activeSector.textColor} px-4 py-3 rounded-lg font-medium border border-qatari`}
                     >
                       {opportunity}
                     </div>

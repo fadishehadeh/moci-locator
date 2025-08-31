@@ -47,7 +47,7 @@ const UserSegments = () => {
       <div className="container-wide">
         <div className="text-left mb-12">
           <h2 className="text-3xl font-bold mb-4">Find the Resources That Matter to You</h2>
-          <p className="text-lg text-gray-600 max-w-2xl">
+          <p className="text-xl text-gray-600 max-w-2xl">
             Our services are tailored to meet the needs of different audiences.
             Select your profile to access relevant information and services.
           </p>
@@ -77,7 +77,7 @@ const UserSegments = () => {
                 <Button
                   asChild
                   variant={segment.color === 'bg-qatari text-white' ? 'secondary' : 'default'}
-                  className={`mt-auto text-sm ${segment.color === 'bg-qatari text-white' ? 'bg-white/20 text-white hover:bg-white/30' : 'bg-qatari text-white hover:bg-qatari-light'}`}
+                  className={`mt-auto text-xl ${segment.color === 'bg-qatari text-white' ? 'bg-white/20 text-white hover:bg-white/30' : 'bg-qatari text-white hover:bg-qatari-light'}`}
                 >
                   <Link to={segment.link}>
                     Learn More
