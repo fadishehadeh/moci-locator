@@ -25,7 +25,13 @@ import Resources from "./pages/Resources/Resources";
 import ContactUs from "./pages/ContactUs";
 import ContactPageForFigma from "./components/ContactPageForFigma";
 import Password from "./pages/Password";
+import Sitemap from "./pages/Sitemap";
+import TradeNamesSearch from "./pages/Services/TradeNamesSearch";
+import Branches from "./pages/About/Branches";
+import OfficeLocator from "./pages/OfficeLocator/OfficeLocator";
 import { AuthProvider } from "./context/AuthContext";
+import { AccessibilityProvider } from "./context/AccessibilityContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -35,167 +41,203 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <AuthProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/password" element={<Password />} />
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Index />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/international"
-              element={
-                <ProtectedRoute>
-                  <International />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <ProtectedRoute>
-                  <About />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/about/minister"
-              element={
-                <ProtectedRoute>
-                  <Minister />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/about/strategy"
-              element={
-                <ProtectedRoute>
-                  <Strategy />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/about/vision"
-              element={
-                <ProtectedRoute>
-                  <VisionMissionValues />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/about/committees"
-              element={
-                <ProtectedRoute>
-                  <NationalCommittees />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/services"
-              element={
-                <ProtectedRoute>
-                  <Services />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/services/business"
-              element={
-                <ProtectedRoute>
-                  <Business />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/services/consumer"
-              element={
-                <ProtectedRoute>
-                  <Consumer />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/e-services"
-              element={
-                <ProtectedRoute>
-                  <EServices />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/media-centre"
-              element={
-                <ProtectedRoute>
-                  <MediaCenter />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/media-centre/news"
-              element={
-                <ProtectedRoute>
-                  <News />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/media-centre/news/:id"
-              element={
-                <ProtectedRoute>
-                  <NewsArticle />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/media-centre/reports"
-              element={
-                <ProtectedRoute>
-                  <Reports />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/media-centre/gallery"
-              element={
-                <ProtectedRoute>
-                  <Gallery />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/resources"
-              element={
-                <ProtectedRoute>
-                  <Resources />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/contact-us"
-              element={
-                <ProtectedRoute>
-                  <ContactUs />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/contact-figma"
-              element={
-                <ProtectedRoute>
-                  <ContactPageForFigma />
-                </ProtectedRoute>
-              }
-            />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+      <ThemeProvider>
+        <AccessibilityProvider>
+          <AuthProvider>
+            <BrowserRouter>
+            <Routes>
+              <Route path="/password" element={<Password />} />
+              <Route
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <Index />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/international"
+                element={
+                  <ProtectedRoute>
+                    <International />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/about"
+                element={
+                  <ProtectedRoute>
+                    <About />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/about/minister"
+                element={
+                  <ProtectedRoute>
+                    <Minister />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/about/strategy"
+                element={
+                  <ProtectedRoute>
+                    <Strategy />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/about/vision"
+                element={
+                  <ProtectedRoute>
+                    <VisionMissionValues />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/about/committees"
+                element={
+                  <ProtectedRoute>
+                    <NationalCommittees />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/services"
+                element={
+                  <ProtectedRoute>
+                    <Services />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/services/business"
+                element={
+                  <ProtectedRoute>
+                    <Business />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/services/consumer"
+                element={
+                  <ProtectedRoute>
+                    <Consumer />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/e-services"
+                element={
+                  <ProtectedRoute>
+                    <EServices />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/media-centre"
+                element={
+                  <ProtectedRoute>
+                    <MediaCenter />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/media-centre/news"
+                element={
+                  <ProtectedRoute>
+                    <News />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/media-centre/news/:id"
+                element={
+                  <ProtectedRoute>
+                    <NewsArticle />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/media-centre/reports"
+                element={
+                  <ProtectedRoute>
+                    <Reports />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/media-centre/gallery"
+                element={
+                  <ProtectedRoute>
+                    <Gallery />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/resources"
+                element={
+                  <ProtectedRoute>
+                    <Resources />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/contact-us"
+                element={
+                  <ProtectedRoute>
+                    <ContactUs />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/contact-figma"
+                element={
+                  <ProtectedRoute>
+                    <ContactPageForFigma />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/sitemap"
+                element={
+                  <ProtectedRoute>
+                    <Sitemap />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/trade-names"
+                element={
+                  <ProtectedRoute>
+                    <TradeNamesSearch />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/about/branches"
+                element={
+                  <ProtectedRoute>
+                    <Branches />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/locator"
+                element={
+                  <ProtectedRoute>
+                    <OfficeLocator />
+                  </ProtectedRoute>
+                }
+              />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </AuthProvider>
+            </BrowserRouter>
+          </AuthProvider>
+        </AccessibilityProvider>
+      </ThemeProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
