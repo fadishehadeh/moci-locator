@@ -288,7 +288,7 @@ const CarouselDots = React.forwardRef<
           key={index}
           className={cn(
             "w-2 h-2 rounded-full transition-colors",
-            index === selectedIndex ? "bg-black" : "bg-gray-300"
+            index === selectedIndex ? "bg-black dark:bg-white" : "bg-gray-300 dark:bg-gray-600"
           )}
           onClick={() => scrollTo(index)}
           aria-label={`Go to slide ${index + 1}`}

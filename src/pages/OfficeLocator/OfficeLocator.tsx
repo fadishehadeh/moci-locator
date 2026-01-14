@@ -3,12 +3,15 @@ import OfficeLocatorLayout from '@/components/Layout/OfficeLocatorLayout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { MapPin, Search, Building2, AlertCircle } from 'lucide-react';
+import { MapPin, Search, AlertCircle, ArrowRight, CheckCircle2, Layers, Users, Phone, MapPinned } from 'lucide-react';
 import { findEmployeeByNumber, OfficeLocation } from '@/data/officeLocations';
-import OfficeLocationDisplay from './OfficeLocationDisplay';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import DirectionsAndVisualization from './DirectionsAndVisualization';
+
+type Step = 1 | 2 | 3;
 
 const OfficeLocator = () => {
+  const [currentStep, setCurrentStep] = useState<Step>(1);
   const [employeeNumber, setEmployeeNumber] = useState('');
   const [searchResult, setSearchResult] = useState<OfficeLocation | null>(null);
   const [error, setError] = useState('');
@@ -17,7 +20,6 @@ const OfficeLocator = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    setSearchResult(null);
     setIsSearching(true);
 
     // Simulate a brief loading state for better UX
@@ -29,13 +31,14 @@ const OfficeLocator = () => {
       }
 
       const result = findEmployeeByNumber(employeeNumber);
-      
+
       if (result) {
         setSearchResult(result);
+        setCurrentStep(2);
       } else {
         setError('Employee number not found. Please check your employee number and try again.');
       }
-      
+
       setIsSearching(false);
     }, 500);
   };
@@ -44,14 +47,35 @@ const OfficeLocator = () => {
     setEmployeeNumber('');
     setSearchResult(null);
     setError('');
+    setCurrentStep(1);
+  };
+
+  const handleNextStep = () => {
+    if (currentStep < 3) {
+      setCurrentStep((currentStep + 1) as Step);
+    }
+  };
+
+  const handlePreviousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep((currentStep - 1) as Step);
+    }
+  };
+
+  const getFloorName = (floor: number): string => {
+    if (floor === 1) return 'Ground Floor';
+    if (floor === 2) return '1st Floor';
+    if (floor === 3) return '2nd Floor';
+    if (floor === 4) return '3rd Floor';
+    return `${floor - 1}th Floor`;
   };
 
   return (
     <OfficeLocatorLayout>
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12">
         <div className="container mx-auto px-4 max-w-6xl">
-          {/* Search Section */}
-          {!searchResult && (
+          {/* Step 1: Employee Number Input */}
+          {currentStep === 1 && (
             <Card className="max-w-2xl mx-auto shadow-xl border-2 border-gray-200 dark:border-gray-700">
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl flex items-center justify-center gap-2">
@@ -65,8 +89,8 @@ const OfficeLocator = () => {
               <CardContent>
                 <form onSubmit={handleSearch} className="space-y-6">
                   <div className="space-y-2">
-                    <label 
-                      htmlFor="employeeNumber" 
+                    <label
+                      htmlFor="employeeNumber"
                       className="text-sm font-medium text-gray-700 dark:text-gray-300"
                     >
                       Employee Number
@@ -135,12 +159,150 @@ const OfficeLocator = () => {
             </Card>
           )}
 
-          {/* Results Section */}
-          {searchResult && (
-            <OfficeLocationDisplay 
-              location={searchResult} 
-              onReset={handleReset}
-            />
+          {/* Step 2: Office Location Results */}
+          {currentStep === 2 && searchResult && (
+            <div className="max-w-4xl mx-auto">
+              {/* Success Header */}
+              <div className="text-center mb-8">
+                <div className="flex justify-center mb-4">
+                  <div className="bg-green-100 dark:bg-green-900/30 p-4 rounded-full animate-pulse">
+                    <CheckCircle2 className="h-12 w-12 text-green-600 dark:text-green-400" />
+                  </div>
+                </div>
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                  Office Located!
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-300">
+                  Welcome, {searchResult.employeeName}
+                </p>
+              </div>
+
+              {/* Main Office Info Card */}
+              <Card className="shadow-xl border-2 border-qatari/20">
+                <CardHeader className="bg-gradient-to-r from-qatari to-qatari-dark text-white">
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <MapPinned className="h-6 w-6" />
+                    Your Office Location
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6 space-y-6">
+                  {/* Office Number - Prominent Display */}
+                  <div className="text-center p-6 bg-gradient-to-br from-qatari/10 to-qatari/5 rounded-lg border-2 border-qatari/30">
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
+                      Office Number
+                    </p>
+                    <p className="text-5xl font-bold text-qatari">
+                      {searchResult.officeNumber}
+                    </p>
+                  </div>
+
+                  {/* Details Grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Layers className="h-5 w-5 text-qatari" />
+                        <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                          Floor
+                        </p>
+                      </div>
+                      <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                        {getFloorName(searchResult.floor)}
+                      </p>
+                    </div>
+
+                    <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="flex items-center gap-2 mb-2">
+                        <MapPin className="h-5 w-5 text-qatari" />
+                        <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                          Zone
+                        </p>
+                      </div>
+                      <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                        Zone {searchResult.zone}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Department */}
+                  <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                      <p className="text-sm font-medium text-blue-900 dark:text-blue-100">
+                        Department
+                      </p>
+                    </div>
+                    <p className="text-lg font-semibold text-blue-900 dark:text-blue-100">
+                      {searchResult.department}
+                    </p>
+                  </div>
+
+                  {/* Extension */}
+                  {searchResult.extension && (
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Phone className="h-5 w-5 text-green-600 dark:text-green-400" />
+                        <p className="text-sm font-medium text-green-900 dark:text-green-100">
+                          Extension
+                        </p>
+                      </div>
+                      <p className="text-lg font-semibold text-green-900 dark:text-green-100">
+                        {searchResult.extension}
+                      </p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+
+              {/* Navigation Buttons */}
+              <div className="flex justify-between mt-8">
+                <Button
+                  onClick={handleReset}
+                  variant="outline"
+                  size="lg"
+                  className="text-lg px-8 h-14 border-2"
+                >
+                  Start Over
+                </Button>
+                <Button
+                  onClick={handleNextStep}
+                  size="lg"
+                  className="text-lg px-8 h-14 bg-qatari hover:bg-qatari-dark text-white"
+                >
+                  View Directions
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: Directions and Building Visualization */}
+          {currentStep === 3 && searchResult && (
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+                Directions & Building Overview
+              </h2>
+
+              <DirectionsAndVisualization location={searchResult} />
+
+              {/* Navigation Buttons */}
+              <div className="flex justify-between mt-8">
+                <Button
+                  onClick={handlePreviousStep}
+                  variant="outline"
+                  size="lg"
+                  className="text-lg px-8 h-14 border-2"
+                >
+                  Back to Location
+                </Button>
+                <Button
+                  onClick={handleReset}
+                  size="lg"
+                  className="text-lg px-8 h-14 bg-qatari hover:bg-qatari-dark text-white"
+                >
+                  Search Another Employee
+                </Button>
+              </div>
+            </div>
           )}
         </div>
       </div>

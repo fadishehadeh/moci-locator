@@ -43,11 +43,11 @@ const segments = [
 
 const UserSegments = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container-wide">
         <div className="text-left mb-12">
-          <h2 className="text-3xl font-bold mb-4">Find the Resources That Matter to You</h2>
-          <p className="text-xl text-gray-600 max-w-2xl">
+          <h2 className="text-3xl font-bold mb-4 dark:text-white">Find the Resources That Matter to You</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
             Our services are tailored to meet the needs of different audiences.
             Select your profile to access relevant information and services.
           </p>
@@ -60,17 +60,17 @@ const UserSegments = () => {
             return (
               <div
                 key={segment.title}
-                className={`rounded-xl p-6 border border-qatari ${segment.color} flex flex-col h-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg`}
+                className={`rounded-xl p-6 border border-qatari ${segment.color} dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-gray-700/50`}
               >
-                <div className={`rounded-full w-12 h-12 flex items-center justify-center mb-4 ${segment.color === 'bg-qatari text-white' ? 'bg-white/20' : 'bg-qatari/10'}`}>
-                  <IconComponent className={`h-6 w-6 ${segment.color === 'bg-qatari text-white' ? 'text-white' : 'text-qatari'}`} />
+                <div className={`rounded-full w-12 h-12 flex items-center justify-center mb-4 ${segment.color === 'bg-qatari text-white' ? 'bg-white/20' : 'dark:bg-gray-700 bg-qatari/10'}`}>
+                  <IconComponent className={`h-6 w-6 ${segment.color === 'bg-qatari text-white' ? 'text-white' : 'dark:text-gray-300 text-qatari'}`} />
                 </div>
 
-                <h3 className={`text-xl font-semibold mb-3 ${segment.color === 'bg-qatari text-white' ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-xl font-semibold mb-3 ${segment.color === 'bg-qatari text-white' ? 'text-white' : 'dark:text-white text-gray-900'}`}>
                   {segment.title}
                 </h3>
 
-                <p className={`mb-6 flex-grow text-xl ${segment.color === 'bg-qatari text-white' ? 'text-white/90' : 'text-gray-600'}`}>
+                <p className={`mb-6 flex-grow text-xl ${segment.color === 'bg-qatari text-white' ? 'text-white/90' : 'dark:text-gray-300 text-gray-600'}`}>
                   {segment.description}
                 </p>
 

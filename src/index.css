@@ -39,33 +39,64 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 346 80% 30%;
-    --primary-foreground: 210 40% 98%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 80%;
+  }
+
+  /* High Contrast Mode */
+  .high-contrast-mode {
+    --background: 0 0% 0%;
+    --foreground: 60 100% 50%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 60 100% 50%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 60 100% 50%;
+
+    --primary: 60 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 50%;
+    --muted-foreground: 60 100% 50%;
+
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 60 100% 50%;
+    --input: 0 0% 20%;
+    --ring: 60 100% 50%;
   }
 }
 
@@ -140,15 +171,15 @@
   .container-wide {
     @apply container max-w-7xl mx-auto px-4 md:px-8;
   }
-  
+
   .section-padding {
     @apply py-16 md:py-24;
   }
-  
+
   .btn-qatari {
     @apply bg-qatari text-white font-medium px-6 py-3 rounded-md hover:bg-qatari-light transition-colors duration-200 shadow-sm;
   }
-  
+
   .btn-qatari-outline {
     @apply border-2 border-qatari text-qatari font-medium px-6 py-3 rounded-md hover:bg-qatari/5 transition-colors duration-200;
   }
@@ -156,9 +187,9 @@
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
-  
+
   .glass-card {
-    @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-sm rounded-lg;
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100 dark:border-gray-700 shadow-sm rounded-lg;
   }
 
   .drop-shadow-md-dark {
@@ -178,6 +209,12 @@
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     border: 2px solid #e2e8f0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .enhanced-tabs-list {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border: 2px solid #374151;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   }
 
   .enhanced-tab-trigger {
@@ -348,6 +385,20 @@
     background: #94a3b8;
   }
 
+  .dark .sticky-sidebar::-webkit-scrollbar-track {
+    background: #1f2937;
+    border-radius: 3px;
+  }
+
+  .dark .sticky-sidebar::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 3px;
+  }
+
+  .dark .sticky-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+
   /* Ensure smooth scrolling behavior */
   .sticky-sidebar {
     scroll-behavior: smooth;
@@ -378,5 +429,84 @@
       top: 1.5rem;
       max-height: calc(100vh - 3rem);
     }
+  }
+
+  /* High Contrast Mode Enhancements */
+  .high-contrast-mode {
+    background-color: #000000;
+    color: #ffff00;
+  }
+
+  .high-contrast-mode body {
+    background-color: #000000;
+    color: #ffff00;
+  }
+
+  .high-contrast-mode a {
+    color: #ffff00;
+    text-decoration: underline;
+  }
+
+  .high-contrast-mode a:visited {
+    color: #ffff00;
+  }
+
+  .high-contrast-mode button,
+  .high-contrast-mode [role="button"] {
+    border: 2px solid #ffff00;
+    background-color: #000000;
+    color: #ffff00;
+  }
+
+  .high-contrast-mode button:hover,
+  .high-contrast-mode [role="button"]:hover {
+    background-color: #ffff00;
+    color: #000000;
+  }
+
+  .high-contrast-mode input,
+  .high-contrast-mode textarea,
+  .high-contrast-mode select {
+    background-color: #1a1a1a;
+    color: #ffff00;
+    border: 2px solid #ffff00;
+  }
+
+  .high-contrast-mode header {
+    background-color: #000000;
+    border-color: #ffff00;
+  }
+
+  .high-contrast-mode footer {
+    background-color: #000000;
+    border-color: #ffff00;
+  }
+
+  .high-contrast-mode .bg-white {
+    background-color: #000000;
+  }
+
+  .high-contrast-mode .text-gray-600 {
+    color: #ffff00;
+  }
+
+  .high-contrast-mode .border-gray-200,
+  .high-contrast-mode .border-gray-100 {
+    border-color: #ffff00;
+  }
+
+  .high-contrast-mode .bg-qatari {
+    background-color: #ffff00;
+    color: #000000;
+  }
+
+  .high-contrast-mode .text-qatari {
+    color: #ffff00;
+  }
+
+  /* Focus indicators are more visible in high contrast mode */
+  .high-contrast-mode *:focus {
+    outline: 3px solid #ffff00;
+    outline-offset: 2px;
   }
 }

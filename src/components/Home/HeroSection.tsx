@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
-    <div className="relative h-screen bg-gray-100 text-white opacity-100">
+    <div className="relative h-screen bg-gray-100 dark:bg-gray-950 text-white opacity-100">
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0 opacity-100"
@@ -15,7 +15,7 @@ const HeroSection = () => {
           backgroundPosition: "center 30%"
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/10 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/10 dark:from-gray-950/95 dark:to-gray-950/50 z-0"></div>
       </div>
 
       {/* Content */}

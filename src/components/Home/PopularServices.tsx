@@ -131,7 +131,7 @@ const PopularServices = () => {
 
   return (
     <section
-      className="py-24 relative overflow-hidden"
+      className="py-24 relative overflow-hidden bg-white dark:bg-gray-950"
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
@@ -140,16 +140,16 @@ const PopularServices = () => {
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-sm"
+        className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/95 dark:from-gray-950/95 dark:via-gray-900/90 dark:to-gray-950/95 backdrop-blur-sm"
         aria-hidden="true"
       />
 
       <div className="container-wide relative z-10">
         <div className="text-left mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold mb-3 text-qatari bg-clip-text text-transparent bg-gradient-to-r from-qatari to-qatari-light">
+          <h2 className="text-4xl font-bold mb-3 text-qatari dark:text-qatari-light bg-clip-text text-transparent bg-gradient-to-r from-qatari dark:from-qatari-light to-qatari-light dark:to-white">
             How Can We Help You Today?
           </h2>
-          <p className="text-gray-600 text-xl">
+          <p className="text-gray-600 dark:text-gray-300 text-xl">
             Access our most popular services with just a click
           </p>
         </div>
@@ -188,7 +188,7 @@ const PopularServices = () => {
                   "w-2 h-2 rounded-full transition-all duration-300 cursor-pointer",
                   activeService?.id === service.id
                     ? "bg-qatari w-4"
-                    : "bg-black hover:bg-gray-700"
+                    : "bg-black dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-300"
                 )}
                 role="button"
                 tabIndex={0}

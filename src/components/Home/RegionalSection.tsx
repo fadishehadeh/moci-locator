@@ -71,14 +71,14 @@ const RegionalSection = () => {
   const userCountry = countries.find(country => country.code === countryCode);
   
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-gray-50 dark:from-gray-900 to-white dark:to-gray-950">
       <div className="container-wide">
         <div className="mb-12">
-          <div className="flex items-center gap-3 text-qatari mb-4">
+          <div className="flex items-center gap-3 text-qatari dark:text-qatari-light mb-4">
             <Globe2 className="h-6 w-6" />
-            <h2 className="text-3xl font-bold">International Investor Resources</h2>
+            <h2 className="text-3xl font-bold dark:text-white">International Investor Resources</h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl">
             Access tailored information and resources specific to your region. Our international
             investment guides provide localized insights for investors from around the world.
           </p>
@@ -145,12 +145,12 @@ const RegionalSection = () => {
                 {userCountry.flag}
               </div>
               <div className="flex-grow">
-                <div className="mb-1 text-qatari font-medium">Regional Resources
-                  
+                <div className="mb-1 text-qatari dark:text-qatari-light font-medium">Regional Resources
+
                 </div>
-                
-                <h3 className="text-2xl font-bold mb-3">Opportunities for {userCountry.name} Investors</h3>
-                <p className="text-black mb-4">
+
+                <h3 className="text-2xl font-bold mb-3 dark:text-white">Opportunities for {userCountry.name} Investors</h3>
+                <p className="text-black dark:text-white mb-4">
                   {userCountry.description}
                 </p>
                 <Button
@@ -167,7 +167,7 @@ const RegionalSection = () => {
           </div>
         )}
         
-        <h3 className="text-xl font-semibold mb-6">Explore Other Regional Resources</h3>
+        <h3 className="text-xl font-semibold mb-6 dark:text-white">Explore Other Regional Resources</h3>
         
         <Carousel
           opts={{
@@ -183,18 +183,18 @@ const RegionalSection = () => {
                 <CarouselItem key={country.code} className="md:basis-1/3 lg:basis-1/4">
                   <Link
                     to={`/investors/regions/${country.code.toLowerCase()}`}
-                    className="glass-card border border-qatari p-5 flex flex-col h-full shadow-sm card-hover"
+                    className="glass-card border border-qatari dark:border-gray-700 p-5 flex flex-col h-full shadow-sm card-hover"
                   >
                     <div className="flex mb-4 items-center">
                       <div className="text-white flex-shrink-0 w-10 h-10 bg-gradient-to-br from-qatari to-qatari-light rounded-lg flex items-center justify-center text-2xl mr-3 shadow-md">
                         {country.flag}
                       </div>
-                      <h4 className="font-semibold">{country.name}</h4>
+                      <h4 className="font-semibold dark:text-white">{country.name}</h4>
                     </div>
-                    <p className="text-gray-600 text-xl mb-4 flex-grow">
+                    <p className="text-gray-600 dark:text-gray-300 text-xl mb-4 flex-grow">
                       {country.description}
                     </p>
-                    <div className="text-qatari font-medium text-xl flex items-center mt-auto">
+                    <div className="text-qatari dark:text-qatari-light font-medium text-xl flex items-center mt-auto">
                       Explore Opportunities
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </div>

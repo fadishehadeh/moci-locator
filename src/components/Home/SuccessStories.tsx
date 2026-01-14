@@ -141,27 +141,21 @@ const SuccessStories = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
+    <section className="py-20 relative dark:bg-gray-950">
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 dark:from-gray-900 to-white dark:to-gray-950"></div>
       <div className="container-wide relative z-10">
         <div className="mb-10">
           <div>
-            <h2 className="text-3xl font-bold mb-2">Success Stories & Updates</h2>
-            <p className="text-gray-600">Latest news, events, and investor success stories</p>
+            <h2 className="text-3xl font-bold mb-2 dark:text-white">Success Stories & Updates</h2>
+            <p className="text-gray-600 dark:text-gray-300">Latest news, events, and investor success stories</p>
           </div>
         </div>
 
         <Tabs defaultValue="success" className="w-full">
-          <TabsList className="mb-8 border border-gray-800 p-1 bg-transparent">
-            <TabsTrigger value="success" className="text-xl px-4 py-2 text-black data-[state=active]:bg-transparent data-[state=active]:text-qatari">Success Stories</TabsTrigger>
-            <TabsTrigger value="press" className="text-black data-[state=active]:bg-transparent data-[state=active]:text-qatari text-xl px-4 py-2">Press Releases</TabsTrigger>
-            <TabsTrigger value="events" className="text-black data-[state=active]:bg-transparent data-[state=active]:text-qatari text-xl px-4 py-2">Upcoming Events</TabsTrigger>
-            <TabsTrigger value="all-news" asChild className="text-black data-[state=active]:bg-transparent data-[state=active]:text-qatari text-xl px-4 py-2">
-              <Link to="/media-centre" className="flex items-center">
-                View All News
-                <ChevronRight className="ml-1 h-4 w-4" />
-              </Link>
-            </TabsTrigger>
+          <TabsList className="mb-8 border border-gray-800 dark:border-gray-600 p-1 bg-transparent">
+            <TabsTrigger value="success" className="text-xl px-4 py-2 text-black dark:text-white data-[state=active]:bg-transparent data-[state=active]:text-qatari">Latest News</TabsTrigger>
+            <TabsTrigger value="press" className="text-black dark:text-white data-[state=active]:bg-transparent data-[state=active]:text-qatari text-xl px-4 py-2">Latest Initiatives</TabsTrigger>
+            <TabsTrigger value="events" className="text-black dark:text-white data-[state=active]:bg-transparent data-[state=active]:text-qatari text-xl px-4 py-2">Latest Recalls</TabsTrigger>
           </TabsList>
 
           <TabsContent value="success">
@@ -190,6 +184,13 @@ const SuccessStories = () => {
                   </CardFooter>
                 </Card>
               ))}
+            </div>
+            {/* View All News Link - positioned below 3rd card on bottom right */}
+            <div className="mt-6 flex justify-end">
+              <Link to="/media-centre" className="text-qatari font-medium text-lg flex items-center hover:underline">
+                View All News
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
             </div>
           </TabsContent>
 
