@@ -8,6 +8,7 @@ interface BuildingVisualizationProps {
   zone: string;
   officeNumber: string;
   showAnimatedRoute?: boolean;
+  onRouteStart?: () => void;
 }
 
 interface PathStep {
@@ -22,7 +23,8 @@ const BuildingVisualization: React.FC<BuildingVisualizationProps> = ({
   floor,
   zone,
   officeNumber,
-  showAnimatedRoute = false
+  showAnimatedRoute = false,
+  onRouteStart
 }) => {
   const [highlightedFloor, setHighlightedFloor] = useState<number | null>(null);
   const [currentPathStep, setCurrentPathStep] = useState<number>(-1);
@@ -124,10 +126,20 @@ const BuildingVisualization: React.FC<BuildingVisualizationProps> = ({
     }
   }, [currentPathStep, isAnimating, isPaused, pathSteps.length]);
 
+  // Auto-start animation when showAnimatedRoute becomes true
+  useEffect(() => {
+    if (showAnimatedRoute && currentPathStep === -1) {
+      startAnimation();
+    }
+  }, [showAnimatedRoute]);
+
   const startAnimation = () => {
     setCurrentPathStep(0);
     setIsAnimating(true);
     setIsPaused(false);
+    if (onRouteStart) {
+      onRouteStart();
+    }
   };
 
   const pauseAnimation = () => {
@@ -395,17 +407,9 @@ const BuildingVisualization: React.FC<BuildingVisualizationProps> = ({
               </div>
             )}
 
-            <div className="flex gap-2">
-              {!isAnimating ? (
-                <Button
-                  onClick={startAnimation}
-                  size="lg"
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white h-14 text-lg"
-                >
-                  <Play className="h-5 w-5 mr-2" />
-                  Show Route
-                </Button>
-              ) : (
+            {/* Animation Controls */}
+            {currentPathStep >= 0 && (
+              <div className="flex gap-2 mb-4">
                 <Button
                   onClick={pauseAnimation}
                   size="lg"
@@ -415,17 +419,16 @@ const BuildingVisualization: React.FC<BuildingVisualizationProps> = ({
                   <Pause className="h-5 w-5 mr-2" />
                   {isPaused ? 'Resume' : 'Pause'}
                 </Button>
-              )}
-              <Button
-                onClick={resetAnimation}
-                size="lg"
-                variant="outline"
-                disabled={currentPathStep < 0}
-                className="h-14"
-              >
-                <RotateCcw className="h-5 w-5" />
-              </Button>
-            </div>
+                <Button
+                  onClick={resetAnimation}
+                  size="lg"
+                  variant="outline"
+                  className="h-14"
+                >
+                  <RotateCcw className="h-5 w-5" />
+                </Button>
+              </div>
+            )}
 
             {/* Path Steps List */}
             {currentPathStep >= 0 && (

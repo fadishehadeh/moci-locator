@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Navigation } from 'lucide-react';
+import { Navigation, Play } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { OfficeLocation } from '@/data/officeLocations';
 import BuildingVisualization from './BuildingVisualization';
 
@@ -9,6 +10,8 @@ interface DirectionsAndVisualizationProps {
 }
 
 const DirectionsAndVisualization: React.FC<DirectionsAndVisualizationProps> = ({ location }) => {
+  const [showRoute, setShowRoute] = useState(false);
+
   return (
     <div className="space-y-8">
       {/* 1. How to Get There - Full Width at Top */}
@@ -21,6 +24,18 @@ const DirectionsAndVisualization: React.FC<DirectionsAndVisualizationProps> = ({
             </CardTitle>
           </CardHeader>
           <CardContent className="pt-4">
+            {/* Show Route Button */}
+            <div className="mb-6">
+              <Button
+                onClick={() => setShowRoute(true)}
+                size="lg"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white h-14 text-lg"
+              >
+                <Play className="h-5 w-5 mr-2" />
+                Show Route
+              </Button>
+            </div>
+
             <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               {location.directions}
             </p>
@@ -40,7 +55,8 @@ const DirectionsAndVisualization: React.FC<DirectionsAndVisualizationProps> = ({
         floor={location.floor}
         zone={location.zone}
         officeNumber={location.officeNumber}
-        showAnimatedRoute={true}
+        showAnimatedRoute={showRoute}
+        onRouteStart={() => setShowRoute(true)}
       />
     </div>
   );
